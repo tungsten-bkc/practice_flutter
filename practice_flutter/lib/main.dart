@@ -14,7 +14,16 @@ class MyApp extends StatelessWidget {
           title: const Text('Flutter Practice'),
         ),
         body: const Center(
-          child: Text("Hello Flutter App"),
+          child: ListTile(
+            title: Text("山田 太郎"),
+            subtitle: Text("やまだ たろう"),
+            leading: Icon(Icons.face_6),
+            shape: RoundedRectangleBorder(
+              side: BorderSide(
+                color: Colors.blue,
+              ),
+            ),
+          ),
         ),
       ),
     );

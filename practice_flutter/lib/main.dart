@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:practice_flutter/const/charactor.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,18 +14,26 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: const Text('Flutter Practice'),
         ),
-        body: const Center(
-          child: ListTile(
-            title: Text("山田 太郎"),
-            subtitle: Text("やまだ たろう"),
-            leading: Icon(Icons.face_6),
-            shape: RoundedRectangleBorder(
-              side: BorderSide(
-                color: Colors.blue,
-              ),
-            ),
-          ),
-        ),
+        body: ListView.builder(
+            itemCount: Charactor.characters.length,
+            itemBuilder: (BuildContext context, int index) {
+              return Card(
+                child: ListTile(
+                  title: Text(
+                    Charactor.characters[index]['name'],
+                    style: const TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontStyle: FontStyle.italic),
+                  ),
+                  leading: const Icon(Icons.face_6),
+                  shape: const RoundedRectangleBorder(
+                    side: BorderSide(
+                      color: Colors.blue,
+                    ),
+                  ),
+                ),
+              );
+            }),
       ),
     );
   }

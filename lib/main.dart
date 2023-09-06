@@ -7,39 +7,41 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
+      theme: ThemeData(),
       home: MyHomePage(),
     );
   }
 }
 
 class MyHomePage extends StatelessWidget {
+  final items = ['山田 太郎'];
+  final subItems = ['やまだ たろう'];
+
+  MyHomePage({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.blueAccent,
-        title: const Center(
-            child: Text(
-              "Flutter Practice",
-              style: TextStyle(
-                color: Colors.white
-              ),
-            ),
-        ),
+        title: const Text('Flutter Practice'),
       ),
-      body: Container(
-        child: Center(
-            child: Text("Hello Flutter App"),
-        ),
+      body: ListView.builder(
+        itemCount: items.length,
+        itemBuilder: (context, index){
+          return Container(
+            decoration: BoxDecoration(
+              border: Border.all()
+            ),
+            child: ListTile(
+              leading: Icon(Icons.face_6),
+              title: Text('${items[index]}'),
+              subtitle: Text('${subItems[index]}'),
+            ),
+          );
+        },
       ),
     );
   }

@@ -1,4 +1,4 @@
-class Charactor {
+class Character {
   static Map characters = {
     0: {'name': 'ryu', 'image': 'ryu.png'},
     1: {'name': 'luke', 'image': 'luke.png'},

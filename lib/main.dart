@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:practice_flutter/const/character.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,9 +19,6 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatelessWidget {
-  final items = ['山田 太郎'];
-  final subItems = ['やまだ たろう'];
-
   MyHomePage({super.key});
   @override
   Widget build(BuildContext context) {
@@ -29,16 +27,22 @@ class MyHomePage extends StatelessWidget {
         title: const Text('Flutter Practice'),
       ),
       body: ListView.builder(
-        itemCount: items.length,
+        itemCount: Character.characters.length,
         itemBuilder: (context, index){
-          return Container(
-            decoration: BoxDecoration(
-              border: Border.all()
-            ),
+          return Padding(
+            padding: const EdgeInsets.all(8.0),
             child: ListTile(
+              shape: RoundedRectangleBorder(
+                side: BorderSide()
+              ),
               leading: Icon(Icons.face_6),
-              title: Text('${items[index]}'),
-              subtitle: Text('${subItems[index]}'),
+              title: Text(
+                '${Character.characters[index]['name']}',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontStyle: FontStyle.italic,
+                ),
+              ),
             ),
           );
         },

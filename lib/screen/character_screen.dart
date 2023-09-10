@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class CharacterScreen extends StatelessWidget {
-  CharacterScreen({required this.characterName});
+  const CharacterScreen({Key? key, required this.characterName}) :super(key: key);
   final String characterName;
 
   @override
@@ -12,11 +12,9 @@ class CharacterScreen extends StatelessWidget {
             characterName
         ),
       ),
-      body: Container(
-        child: Center(
-          child: Text(
-              characterName
-          ),
+      body: Center(
+        child: Text(
+            characterName
         ),
       ),
     );

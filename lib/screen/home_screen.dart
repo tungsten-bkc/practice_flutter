@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:practice_flutter/const/character.dart';
-import 'package:practice_flutter/character_screen.dart';
 
 class HomeScreen extends StatelessWidget {
-  HomeScreen({super.key});
+  const HomeScreen({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,16 +16,12 @@ class HomeScreen extends StatelessWidget {
           return Card(
             child: ListTile(
               onTap: () {
-                //指定した画面に遷移する
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => CharacterScreen(characterName: Character.characters[index]['name'])),
-                );
+                context.push('/character', extra: '${Character.characters[index]['name']}');
               },
-              leading: Icon(Icons.face_6),
+              leading: const Icon(Icons.face_6),
               title: Text(
                 '${Character.characters[index]['name']}',
-                style: TextStyle(
+                style: const TextStyle(
                   fontWeight: FontWeight.bold,
                   fontStyle: FontStyle.italic,
                 ),
